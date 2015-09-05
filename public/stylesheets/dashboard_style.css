@@ -1,13 +1,11 @@
 body {
 	padding: 0px 50px 50px 50px;
-	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	background-color: #FF4747;
 	color: white;
 }
 
 .header {
 	margin: 20px 0px 10px 20px;
-	font: 64px "Lucida Grande", Helvetica, Arial, sans-serif;
 	color: white;
 	width: 95%;
 	height: 90px;
