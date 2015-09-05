@@ -4,14 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var auth = require('./auth/routes');
 var passport = require('passport');
-
-var LocalStrategy = require('passport-local').Strategy;
 
 var home = require('./routes/home');
 var login = require('./routes/login');
 var signup = require('./routes/signup');
+var main = require('./routes/main');
+var auth = require('./auth/routes');
 
 /* Database connections */
 var dbConfig = require('./db.js');
@@ -37,11 +36,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 //ßapp.use(express.session({ secret: 'cadillac grille' }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.post("/auth/local", auth.local);
 
 app.use('/', home);
 app.use('/login', login);
 app.use('/signup', signup);
+app.use('/main', main);
+app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
