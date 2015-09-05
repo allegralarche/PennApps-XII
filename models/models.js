@@ -33,12 +33,12 @@ var UserSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Squad'
     },
-    student_age: Number,
+    student_age: String,
     student_preference: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Activity'
     },
-    mentor_preferred_age: Number,
+    mentor_preferred_age: String,
    	mentor_skills: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Activity'
