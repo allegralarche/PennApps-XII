@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/global.css' />
-    <link rel='stylesheet' href='/stylesheets/login_style.css' />
-  </head>
-  <body>
-  	<div class = "center">
-	    <h1>School Squad</h1>
-	    <h3>Description goes here</h3>
-	    <a href="/signup/college" class="button">College Signup</a>
-	    <a href="/signup/student" class="button">Student Signup</a>
-		</br>
-	    <a href="/login">Login</a>
-	</div>
-  </body>
-</html>
+<body>
+<div id='popupContainer'>
+  <div id='popup'>
+    <h2>Login</h2>
+    <form action='/auth/local' method='post'>
+      Username: <input type='text' /></br>
+      Password: <input type='password' /></br>
+      <input class='center' type='submit' value='login' />
+    </form>
+  </div>
+</div>
+
+</body>

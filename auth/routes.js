@@ -5,9 +5,8 @@
  */
 
 var passport = require('passport');
-var User = require('../users/models').User;
+var User = require('../models/users').User;
 var LocalStrategy = require('passport-local').Strategy;
-var ibmdb = require('ibm_db');
 
 
 // Passport session setup.
@@ -16,17 +15,21 @@ var ibmdb = require('ibm_db');
 //   this will be as simple as storing the user ID when serializing, and finding
 //   the user by ID when deserializing.
 passport.serializeUser(function (user, fn) {
-  fn(null, user.id);
+  fn(null, user._id);
 });
 
 
 // deserializeUser is passed a function that will return the user who
 // belongs to an id.
 passport.deserializeUser(function (id, fn) {
-  User.findOne({_id: id}, function (err, user) {
+  User.findById(id, function (err, user) {
     fn(err, user);
   });
 });
+
+var isValidPassword = function(user, password){
+  return password === user.password;
+}
 
 
 // Use the LocalStrategy within Passport.
@@ -34,7 +37,7 @@ passport.deserializeUser(function (id, fn) {
 //   credentials (in this case, a username and password), and invoke a callback
 //   with a user object.  In the real world, this would query a database;
 //   however, in this example we are using a baked-in set of users.
-passport.use(new LocalStrategy(
+passport.use('login', new LocalStrategy(
   function (username, password, fn) {
     User.findOne({'username': username}, function (err, usr) {
       if (err) {
@@ -44,22 +47,17 @@ passport.use(new LocalStrategy(
       if (!usr) {
         return fn(err, false, { message: 'Unknown username ' + username });
       }
-      // If we have a user lets compare the provided password with the
-      // user's passwordHash
-      User.comparePasswordAndHash(password, usr.passwordHash, function (err, valid) {
-        if (err) {
-          return fn(err);
-        }
-        // if the passoword is invalid return that 'Invalid Password' to
-        // the user
-        if (!valid) {
-          return fn(null, false, { message: 'Invalid Password' });
-        }
-        return fn(err, usr);
-      });
+      // if the password is invalid return that 'Invalid Password' to
+      // the user
+      if (!isValidPassword(usr, password)) {
+        return fn(null, false, { message: 'Invalid Password' });
+      }
+      return fn(null, usr);
     });
   }
 ));
+
+
 
 
 // POST */auth/local
