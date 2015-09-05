@@ -1,0 +1,68 @@
+body {
+	padding: 0px 50px 50px 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #FF4747;
+	color: white;
+}
+
+.header {
+	margin: 20px 0px 10px 20px;
+	font: 64px "Lucida Grande", Helvetica, Arial, sans-serif;
+	color: white;
+	width: 95%;
+	height: 90px;
+	position:relative;
+}
+
+#logo_img {
+	float: left;
+	position: absolute;
+	bottom: 0;
+	height: auto; 
+	width: auto; 
+	max-height: 90px;
+	max-width: 60%;
+}
+.icon_img {
+	float: right;
+	height: auto; 
+	width: auto; 
+	padding: 15px;
+	max-height: 40px;
+}
+
+.icon_img:hover {
+	opacity: .6;
+}
+
+.wrap {
+	width: 100%;
+}
+.my_squad, .all_squads {
+    background-color: #CC3939;
+    border-radius: 10px;
+}
+.my_squad {
+	float: left;
+	width: 49%;
+}
+.all_squads {
+	float: right;
+	width: 49%;
+}
+.tab_header {
+	padding: 10px;
+	text-align: center;
+}
+.h1_img {
+	padding-top: 5px;
+	height: auto; 
+	width: auto; 
+	max-height: 50px;
+}
+.tab_body {
+	padding: 10px;
+}
+
+
+
