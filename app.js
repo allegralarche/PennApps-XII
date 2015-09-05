@@ -13,6 +13,11 @@ var home = require('./routes/home');
 var login = require('./routes/login');
 var signup = require('./routes/signup');
 
+/* Database connections */
+var dbConfig = require('./db.js');
+var mongoose = require('mongoose');
+mongoose.connect(dbConfig.url);
+
 var app = express();
 
 // view engine setup
@@ -29,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 /* Passport authentication support */
-app.use(express.session({ secret: 'cadillac grille' }));
+//ßapp.use(express.session({ secret: 'cadillac grille' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.post("/auth/local", auth.local);
