@@ -1,0 +1,54 @@
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema,
+	ObjectId = Schema.ObjectId;
+
+var ActivitySchema = new Schema({
+    name: String
+});
+
+var Activity = mongoose.model('Activity', ActivitySchema);
+
+var SquadSchema = new Schema({
+	id: Number,
+	location: String,
+    month: String,
+    meetingtime: String,
+    notes: String,
+    activity: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Activity'
+    }
+});
+
+var Squad = mongoose.model('Squad', SquadSchema);
+
+var UserSchema = new Schema({
+	firstname: String,
+	lastname: String,
+    username: String,
+    password: String,
+    email: String,
+    school: String,
+    squad: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Squad'
+    },
+    student_age: Number,
+    student_preference: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Activity'
+    },
+    mentor_preferred_age: Number,
+   	mentor_skills: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Activity'
+    }]
+});
+
+var User = mongoose.model('User', UserSchema);
+
+module.exports = {
+  Activity: Activity,
+  Squad: Squad,
+  User: User
+}
