@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/global.css' />
+    <link rel='stylesheet' href='/stylesheets/index_style.css' />
+  </head>
+  <body>
+  	<div class = "center">
+	    <h1>School Squad</h1>
+	    <h3>Description goes here</h3>
+	    <a href="/signup" class="button">College Signup</a>
+	    <a href="/signup" class="button">Student Signup</a>
+		</br>
+	    <div onClick="displayPopup()">Login</div>
+	    <% include ../partials/login_popup.ejs %>
+	    <script>
+	    function displayPopup() {
+	    	document.getElementById('popup').style.display='block';
+	    }
+	    </script>
+	</div>
+  </body>
+</html>
