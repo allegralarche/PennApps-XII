@@ -4,6 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var auth = require('./auth/routes');
+var passport = require('passport');
+
+var LocalStrategy = require('passport-local').Strategy;
 
 var home = require('./routes/home');
 var login = require('./routes/login');
@@ -22,6 +26,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+/* Passport authentication support */
+app.use(express.session({ secret: 'cadillac grille' }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.post("/auth/local", auth.local);
 
 app.use('/', home);
 app.use('/login', login);

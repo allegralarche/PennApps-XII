@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   background-color: #FF4747;
   color: white;
 }
@@ -24,6 +24,11 @@ h2 {
 
 h3 {
 	font-size: 30px;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: lighter;
 }
 
 p {
