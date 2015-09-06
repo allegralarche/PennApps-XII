@@ -35,7 +35,7 @@
 }
 
 .wrap {
-	margin: 10px 0px -10px 20px;
+	margin: -5px 0px -20px 20px;
 	width: 96%;
 }
 #logo_img {
@@ -50,7 +50,6 @@
 	width: 60%;
 }
 
-
 table {
     width: 50%;
 }
@@ -64,7 +63,7 @@ th {
 	background-color: #FF4747;
 	color: white;
 	border-radius: 6px;
-	padding: 7px 35px;
+	padding: 5px 123px;
 	margin: 4px;
 	min-width: 100px;
 	border-style: solid;
@@ -72,12 +71,17 @@ th {
 	border-color: white;
 }
 
+#login-button:hover {
+	padding: 4px 122px;
+	border-width: 3px;
+}
+
 .hvr-sink-button {
 	text-decoration: none;
 	background-color: white;
 	color: #FF4747;
 	border-radius: 6px;
-	padding: 10px 15px;
+	padding: 13px 15px;
 	margin: 4px;
 	min-width: 100px;
 	

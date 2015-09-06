@@ -23,8 +23,7 @@ var SquadSchema = new Schema({
 var Squad = mongoose.model('Squad', SquadSchema);
 
 var UserSchema = new Schema({
-	firstname: String,
-	lastname: String,
+	fullname: String,
     username: String,
     password: String,
     email: String,
