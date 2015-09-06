@@ -8,6 +8,7 @@ body {
     padding: 30px;
     padding-top: 1px;
     width: 55%;
+    margin: auto;
 }
 
 #popupContainer {
@@ -17,4 +18,22 @@ body {
     padding-top: 1px;
     width: 25%;
     margin: auto;
+}
+
+input[type="text"] {
+    border-radius: 6;
+    -webkit-appearance: none;
+}
+
+button[type="submit"] {
+    text-decoration: none;
+    background-color: #cc3939;
+    color: white;
+    border-radius: 6px;
+    padding: 7px 35px;
+    margin: 4px;
+    min-width: 100px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
 }
