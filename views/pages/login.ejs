@@ -12,13 +12,21 @@
 	    <h3><font color="7d0d0d">Login</font></h3>
 	    <form action='/auth' method='post'>
 	        <div class="field-wrap">
-				Username&nbsp;<input type='text' />
-			</div><br>
-			<div class="field-wrap">
-				Password&nbsp;&nbsp;<input type='password' />
-	      	</div><br>
+              <label>
+                Username&nbsp;<span class="req"> </span>
+              </label>
+              <input type="text"required autocomplete="off"/>
+            </div>
+            <br>
+            <div class="field-wrap">
+              <label>
+                Password&nbsp;<span class="req"> </span>
+              </label>
+              <input type="password"required autocomplete="off"/>
+            </div>
+            <br>
 	        <div class="field-wrap">
-				<input class='center' type='submit' value='login' />
+	            <button type="submit" class="button button-block"/>Squad Up</button>
 			</div>
 	    </form>
 	  </div>
