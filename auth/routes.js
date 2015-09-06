@@ -63,11 +63,16 @@ passport.use('login', new LocalStrategy(function (username, password, fn) {
     });
   }));
 
-passport.use('signup_mentor', new LocalStrategy({
+passport.use('signup_student', new LocalStrategy({
     passReqToCallback : true
   },
   function(req, username, password, done) {
+<<<<<<< HEAD
     findOrCreateUser = function(){
+=======
+    console.log('MU LA LA');
+    var findOrCreateUser = function(){
+>>>>>>> a70f0f7d80d947e8ec3b7ac14b9210a5f3c9ce5b
       // find a user in Mongo with provided username
       User.findOne({'username':username},function(err, user) {
         // In case of any error return
@@ -87,12 +92,12 @@ passport.use('signup_mentor', new LocalStrategy({
           // set the user's local credentials
           router.use(bodyParser.json());
           newUser.username = username;
-          newUser.password = createHash(password);
+          newUser.password = password;
 
+          newUser.fullname= req.body.fullname;
+          newUser.agegroup = req.body.agegroup;
+          newUser.school= req.body.school;
 
-          newUser.fullname= req.body('Full Name');
-          newUser.agegroup = req.body('Age Group');
-          newUser.school= req.body('University');
           console.log('HERE');  
  
           // save the user
@@ -121,6 +126,18 @@ router.post('/login',
     failureRedirect: '/login',
     failureFlash: false })
 );
+
+router.post('/signup/student', passport.authenticate('signup_student',
+  {successRedirect: '/main',
+  failureRedirect: '/signup/student',
+  failureFlash: false})
+);
+
+router.post('/signup/college', passport.authenticate('local',
+  {successRedirect: '/main',
+  failureRedirect: '/signup/college',
+  failureFlash: false})
+  );
 
 
 
