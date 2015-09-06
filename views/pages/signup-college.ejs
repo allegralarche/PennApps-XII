@@ -5,15 +5,36 @@
         <div id="signup">   
           <h1>Sign Up to Lead a Squad in a Local School!</h1>
           
-          <form action="/" method="post">
+          <form action="/auth/signup" method="post">
           
           <div class="top-row">
             <div class="field-wrap">
+                <label>
+                Username<span class="req">*</span>
+                </label>
+              <input type="text"required autocomplete="off"/>
+            </div>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Password<span class="req">*</span>
+            </label>
+            <input type="password"required autocomplete="off"/>
+          </div>
+         
+          <div class="field-wrap">
               <label>
-                Name<span class="req">*</span>
+                Full Name<span class="req">*</span>
               </label>
               <input type="text" required autocomplete="off" />
             </div>
+
+          <div class="field-wrap">
+            <label>
+              University<span class="req">*</span>
+            </label>
+            <input type="text"required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
@@ -26,31 +47,7 @@
               <option>High School</option>
             </select> 
           </div>
-        
-
-          <div class="field-wrap">
-            <label>
-              University<span class="req">*</span>
-            </label>
-            <input type="text"required autocomplete="off"/>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Username<span class="req">*</span>
-            </label>
-            <input type="text"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-
-          
-          
+                             
           <button type="submit" class="button button-block"/>Squad Up</button>
           
           </form>
