@@ -1,3 +1,11 @@
+var uriUtil = require('mongodb-uri');
+
+
+var mongodbUri = 'mongodb://allegralarche:alohomora94@ds035673.mongolab.com:35673/schoolsquad';
+
+
+
 module.exports = {
-  'url' : 'mongodb://localhost/passport'
+  'url' : uriUtil.formatMongoose(mongodbUri)
+
 }

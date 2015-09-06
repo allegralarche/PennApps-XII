@@ -11,15 +11,3 @@ exports.ensureAuthenticated =  function (req, res, next) {
   }
   return res.redirect('/login');
 };
-
-exports.ensureAdmin =  function (req, res, next) {
-  // make sure the user is logged in. 
-  if (req.isAuthenticated()) {
-    // make sure the user has role 'admin'
-    if (req.user.hasRole('admin')) {
-      return next();
-    }
-  }
-  // otherwise redirect to login
-  return res.redirect('/login');
-};
