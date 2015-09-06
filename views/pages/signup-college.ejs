@@ -1,63 +1,108 @@
 <!DOCTYPE html>
 <html>
-<div class="form">    
-      <div class="tab-content">
-        <div id="signup">   
-          <h1>Sign Up to Lead a Squad in a Local School!</h1>
-          
-          <form action="/" method="post">
-          
-          <div class="top-row">
+<head>
+    <title>schoolsquad</title>
+    <link rel='stylesheet' href='/stylesheets/global.css' />
+    <link rel='stylesheet' href='/stylesheets/form_style.css' />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="form">    
+        <div class="tab-content">
+          <div id="signup">   
+            <h3><font color="7d0d0d">Sign Up to Lead a Squad in a Local School!</font></h3>
+            
+            <form action="/" method="post">
+            
+            <div class="top-row">
+              <div class="field-wrap">
+              <label>
+                Username<span class="req"> </span>
+              </label>
+              <input type="text"required autocomplete="off"/>
+            </div>
+            <br>
+
             <div class="field-wrap">
               <label>
-                Name<span class="req">*</span>
+                Password&nbsp;<span class="req"> </span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text"required autocomplete="off"/>
             </div>
-          </div>
+            <br>
 
-          <div class="field-wrap">
-            <label>
-              Age Group<span class="req">*</span>
-            </label>
-            <select>
-              <option>Elementary School</option>
-              <option>Middle School</option>
-              <option>High School</option>
-            </select> 
+              <div class="field-wrap">
+                <label>
+                  Full Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="req"> </span>
+                </label>
+                <input type="text" required autocomplete="off" />
+              </div>
+            </div>
+            <br>
+
+            <div class="field-wrap">
+              <label>
+                Age Group<span class="req"> </span>
+              </label>
+              <select>
+                <option>Elementary School</option>
+                <option>Middle School</option>
+                <option>High School</option>
+              </select> 
+            </div>
+            <br>
+
+            <div class="field-wrap">
+              <label>
+                University&nbsp;<span class="req"> </span>
+              </label>
+              <input type="text"required autocomplete="off"/>
+            </div>
+            <br>
+
+
+            <div class="field-wrap">
+              <label>
+                Interests/Skills (select all that apply)<span class="req"> </span>
+              </label><br>
+              <form>
+                <table>
+                  <td>
+                    <input type="checkbox" name="Soccer" value="Soccer">Soccer<br>
+                    <input type="checkbox" name="Guitar" value="Guitar">Guitar<br>
+                    <input type="checkbox" name="Creative Writing" value="Creative Writing">Creative Writing<br>
+                    <input type="checkbox" name="Baseball" value="Baseball">Baseball<br>
+                  </td>
+                  <td>
+                    <input type="checkbox" name="Dance" value="Dance">Dance<br>
+                    <input type="checkbox" name="Painting" value="Painting">Painting<br>
+                    <input type="checkbox" name="A Capella" value="A Capella">A Capella<br>
+                    <input type="checkbox" name="Arts and Crafts" value="Arts and Crafts">Arts and Crafts<br>
+                  </td>
+                  <td>
+                    <input type="checkbox" name="Running" value="Running">Running<br>
+                    <input type="checkbox" name="Spanish" value="Spanish">Spanish<br>
+                    <input type="checkbox" name="Acting/Improv" value="Acting/Improv">Acting/Improv<br>
+                    <input type="checkbox" name="Volleyball" value="Volleyball">Volleyball<br>
+                  </td>
+                  <td>
+                    <input type="checkbox" name="Kickball" value="Kickball">Kickball<br>
+                    <input type="checkbox" name="Hiking/Nature" value="Hiking/Nature">Hiking/Nature<br>
+                    <input type="checkbox" name="Kayaking" value="Kayaking">Kayaking<br>
+                    <input type="checkbox" name="Slam Poetry" value="Slam Poetry">Slam Poetry<br>
+                  </td>
+                </table>
+              </form> 
+            </div>     
+            <br>
+            <button type="submit" class="button button-block"/>Squad Up</button>
+            
+            </form>
+
           </div>
+          
+        </div><!-- tab-content -->
         
-
-          <div class="field-wrap">
-            <label>
-              University<span class="req">*</span>
-            </label>
-            <input type="text"required autocomplete="off"/>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Username<span class="req">*</span>
-            </label>
-            <input type="text"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-
-          
-          
-          <button type="submit" class="button button-block"/>Squad Up</button>
-          
-          </form>
-
-        </div>
-        
-      </div><!-- tab-content -->
-      
-</div> <!-- /form -->
+    </div> <!-- /form -->
+  </body>
 </html>
