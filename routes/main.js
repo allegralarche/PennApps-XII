@@ -3,7 +3,6 @@ var router = express.Router();
 var Squad = require('../models/models').Squad;
 var User = require('../models/models').User;
 var Activity = require('../models/models').Activity;
-//var mw = require('../auth/middleware');
 
 router.get('/', function(req, res, next) {
 	var sname = "";
@@ -17,32 +16,37 @@ router.get('/', function(req, res, next) {
 		Squad.findById(sid, function(err, result) {
 			if(err) {
 				console.log(err);
-			} else {
-				if(result) {
-					console.log('aid' + result.activity);
-					Activity.findById(result.activity, function(errtwo, resulttwo) {
-						if(errtwo) {
-							console.log(errtwo);
-						} else if(resulttwo){
-							sname = resulttwo.name;
-						}
-					});
-					slocation = result.location;
-					smonth = result.month;
-					smeetingtime = result.meetingtime;
-					snotes = result.notes;
-				}
-				
+				throw err;
+			} else if(result) {
+				console.log('aid' + result.activity);
+				Activity.findById(result.activity, function(errtwo, resulttwo) {
+					if(errtwo) {
+						console.log(errtwo);
+						throw errtwo;
+					} else if(resulttwo){
+						sname = resulttwo.name;
+						slocation = result.location;
+						smonth = result.month;
+						smeetingtime = result.meetingtime;
+						snotes = result.notes;
+						
+					}
 
+
+			
+				});
 			}
-		})
-		res.render('pages/mentee-dashboard', {
-			'sname' : sname,
-			'slocation' : slocation,
-			'smonth' : smonth,
-			'smeetingtime' : smeetingtime,
-			'snotes' : snotes
 		});
+
+
+		res.render('pages/mentee-dashboard', {
+						sname: sname,
+						slocation : slocation,
+						smonth : smonth,
+						smeetingtime : smeetingtime,
+						snotes : snotes
+					});
+
 	} else {
 		res.render('pages/login');
 	}

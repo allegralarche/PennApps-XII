@@ -148,6 +148,7 @@ passport.use('signup_mentor', new LocalStrategy({
           var newUser = new User();
           // set the user's local credentials
           router.use(bodyParser.json());
+          router.use(bodyParser.urlencoded({ extended: true }));
           newUser.username = username;
           newUser.password = password;
 
@@ -158,8 +159,9 @@ passport.use('signup_mentor', new LocalStrategy({
           newUser.email = req.body.email;
           newUser.squad = "55ec2c36e4b04e68b5a2e582";
           newUser.mentor_preferred_age = req.body.agegroup;
-          for(var a in req.body.activities) {
-            Activity.findOne({'name': a}, function (err, b) {
+          for(var a in req.param('activities')) {
+            console.log(a.value);
+            Activity.findOne({'name': a.value}, function (err, b) {
               newUser.mentor_skills.push(b._id);
             });
           }
