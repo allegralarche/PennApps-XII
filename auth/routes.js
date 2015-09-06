@@ -7,6 +7,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var User = require('../models/models').User;
+var Activity = require('../models/models').Activity;
 var LocalStrategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 
@@ -53,13 +54,15 @@ passport.use('login', new LocalStrategy(function (username, password, fn) {
         console.log("No user");
         return fn(null, false, { message: 'Unknown username ' + username });
       }
-      // if the password is invalid return that 'Invalid Password' to
-      // the user
-      if (!isValidPassword(usr, password)) {
-        console.log("Invalid password");
-        return fn(null, false, { message: 'Invalid Password' });
+      else {
+        // if the password is invalid return that 'Invalid Password' to
+        // the user
+        if (!isValidPassword(usr, password)) {
+          console.log("Invalid password");
+          return fn(null, false, { message: 'Invalid Password' });
+        }
+        return fn(null, usr);
       }
-      return fn(null, usr);
     });
   }));
 
@@ -93,17 +96,23 @@ passport.use('signup_student', new LocalStrategy({
           newUser.fullname= req.body.fullname;
           newUser.student_age = req.body.agegroup;
           newUser.school= req.body.school;
+          newUser.email = req.body.email;
+          newUser.squad = "55ec2c36e4b04e68b5a2e582";
+          newUser.student_preference = "55ebf00ae4b04e68b5a2e2eb";
+          newUser.mentor_skills = [];
+          newUser.mentor_preferred_age = "";
+
 
           console.log('HERE');  
  
           // save the user
-          newUser.save(function(err) {
+          newUser.save(function (err, usr, num) {
             if (err){
               console.log('Error in Saving user: '+err);  
               throw err;  
             }
             console.log('User Registration succesful');    
-            return done(null, newUser);
+            return done(null, usr);
           })
         }
       });
@@ -142,21 +151,31 @@ passport.use('signup_mentor', new LocalStrategy({
           newUser.username = username;
           newUser.password = password;
 
+
           newUser.fullname= req.body.fullname;
-          newUser.mentor_preferred_age = req.body.agegroup;
+          newUser.student_age = "";
           newUser.school= req.body.school;
-          newUser.mentor_skills= req.body.activities;
+          newUser.email = req.body.email;
+          newUser.squad = "55ec2c36e4b04e68b5a2e582";
+          newUser.mentor_preferred_age = req.body.agegroup;
+          for(var a in req.body.activities) {
+            Activity.findOne({'name': a}, function (err, b) {
+              newUser.mentor_skills.push(b._id);
+            });
+          }
+
+          newUser.mentor_skills.push("55ebf00ae4b04e68b5a2e2eb");
 
           console.log('HERE');  
  
           // save the user
-          newUser.save(function(err) {
+          newUser.save(function (err, usr, num) {
             if (err){
               console.log('Error in Saving user: '+err);  
               throw err;  
             }
             console.log('User Registration succesful');    
-            return done(null, newUser);
+            return done(null, usr);
           })
         }
       });

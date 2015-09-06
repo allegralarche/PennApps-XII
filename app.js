@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 /* Passport authentication support */
-//ßapp.use(express.session({ secret: 'cadillac grille' }));
+app.use(session({ secret: 'cadillac grille' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
