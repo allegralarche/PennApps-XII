@@ -67,12 +67,8 @@ passport.use('signup_student', new LocalStrategy({
     passReqToCallback : true
   },
   function(req, username, password, done) {
-<<<<<<< HEAD
-    findOrCreateUser = function(){
-=======
     console.log('MU LA LA');
     var findOrCreateUser = function(){
->>>>>>> a70f0f7d80d947e8ec3b7ac14b9210a5f3c9ce5b
       // find a user in Mongo with provided username
       User.findOne({'username':username},function(err, user) {
         // In case of any error return
