@@ -1,0 +1,20 @@
+body {
+	background-color: #7d0d0d;
+}
+
+.form {
+	background-color: #cc3939;
+    border-radius: 10px;
+    padding: 30px;
+    padding-top: 1px;
+    width: 55%;
+}
+
+#popupContainer {
+	background-color: #cc3939;
+    border-radius: 10px;
+    padding: 30px;
+    padding-top: 1px;
+    width: 25%;
+    margin: auto;
+}

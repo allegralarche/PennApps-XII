@@ -35,20 +35,41 @@
 }
 
 .wrap {
-	margin: 20px 0px 10px 20px;
-	width: 95%;
-	height: 100px;
+	margin: 10px 0px -10px 20px;
+	width: 96%;
 }
 #logo_img {
 	height: auto; 
 	width: auto; 
-	max-height: 100px;
-	max-width: 60%;
+	max-height: 300px;
+	max-width: 70%;
 }
 
 #blurb {
 	margin: auto;
 	width: 60%;
+}
+
+
+table {
+    width: 50%;
+}
+
+th {
+    height: 50px;
+}
+
+#login-button {
+	text-decoration: none;
+	background-color: #FF4747;
+	color: white;
+	border-radius: 6px;
+	padding: 7px 35px;
+	margin: 4px;
+	min-width: 100px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: white;
 }
 
 .hvr-sink-button {
@@ -59,23 +80,25 @@
 	padding: 10px 15px;
 	margin: 4px;
 	min-width: 100px;
-
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+	
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
 }
 .hvr-sink-button:hover, .hvr-sink-button:focus, .hvr-sink-button:active {
-  -webkit-transform: translateY(5px);
-  transform: translateY(5px);
+	-webkit-transform: translateY(-5px);
+	transform: translateY(-5px);
 }
+
+
