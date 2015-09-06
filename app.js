@@ -6,11 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 
+
 var home = require('./routes/home');
 var login = require('./routes/login');
 var signup = require('./routes/signup');
 var main = require('./routes/main');
 var auth = require('./auth/routes');
+
+/* Schedule crons */
+var update = require('./crons/update');
 
 /* Database connections */
 var dbConfig = require('./db.js');

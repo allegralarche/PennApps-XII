@@ -89,6 +89,7 @@ passport.use('signup_student', new LocalStrategy({
           newUser.fullname= req.body.fullname;
           newUser.agegroup = req.body.agegroup;
           newUser.school= req.body.school;
+
           console.log('HERE');  
  
           // save the user
