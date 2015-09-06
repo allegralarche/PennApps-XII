@@ -10,15 +10,15 @@
 	<div id='popupContainer'>
 	  <div id='popup'>
 	    <h3><font color="7d0d0d">Login</font></h3>
-	    <form action='/auth' method='post'>
+	    <form action='/auth/login' method='post'>
 	        <div class="field-wrap">
-				Username&nbsp;<input type='text' />
+				Username&nbsp;<input type='text' name='username'/>
 			</div><br>
 			<div class="field-wrap">
-				Password&nbsp;&nbsp;<input type='password' />
+				Password&nbsp;&nbsp;<input type='password' name='password' />
 	      	</div><br>
 	        <div class="field-wrap">
-				<input class='center' type='submit' value='login' />
+				<input class='center' type='submit' value='Log In' />
 			</div>
 	    </form>
 	  </div>
