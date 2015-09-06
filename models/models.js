@@ -3,13 +3,13 @@ var mongoose = require('mongoose'),
 	ObjectId = Schema.ObjectId;
 
 var ActivitySchema = new Schema({
-    name: String
+    name: String,
+    threshold: Number
 });
 
 var Activity = mongoose.model('Activity', ActivitySchema);
 
 var SquadSchema = new Schema({
-	id: Number,
 	location: String,
     month: String,
     meetingtime: String,
@@ -48,7 +48,7 @@ var UserSchema = new Schema({
 var User = mongoose.model('User', UserSchema);
 
 module.exports = {
-  Activity: Activity,
-  Squad: Squad,
-  User: User
+  'Activity': Activity,
+  'Squad': Squad,
+  'User': User
 }

@@ -59,7 +59,7 @@ passport.use(new LocalStrategy(
 ));
 
 
-router.post('/', 
+router.post('/login', 
   passport.authenticate('local', 
     { successRedirect: '/main',
     failureRedirect: '/login',
