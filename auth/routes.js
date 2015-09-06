@@ -91,7 +91,7 @@ passport.use('signup_student', new LocalStrategy({
           newUser.password = password;
 
           newUser.fullname= req.body.fullname;
-          newUser.agegroup = req.body.agegroup;
+          newUser.student_age = req.body.agegroup;
           newUser.school= req.body.school;
 
           console.log('HERE');  
@@ -143,8 +143,9 @@ passport.use('signup_mentor', new LocalStrategy({
           newUser.password = password;
 
           newUser.fullname= req.body.fullname;
-          newUser.agegroup = req.body.agegroup;
+          newUser.mentor_preferred_age = req.body.agegroup;
           newUser.school= req.body.school;
+          newUser.mentor_skills= req.body.activities;
 
           console.log('HERE');  
  
