@@ -34,36 +34,41 @@ var isValidPassword = function(user, password){
 }
 
 
+
+
+
 // Use the LocalStrategy within Passport.
 //   Strategies in passport require a `verify` function, which accept
 //   credentials (in this case, a username and password), and invoke a callback
-//   with a user object.  In the real world, this would query a database;
-//   however, in this example we are using a baked-in set of users.
-passport.use(new LocalStrategy(
-  function (username, password, fn) {
+//   with a user object.  
+passport.use('login', new LocalStrategy(function (username, password, fn) {
+    console.log("inside login fn");
     User.findOne({'username': username}, function (err, usr) {
       if (err) {
+        console.log(err);
         return fn(err, false, { message: 'An Error occured' });
       }
       // no user then an account was not found for that email address
       if (!usr) {
+        console.log("No user");
         return fn(null, false, { message: 'Unknown username ' + username });
       }
       // if the password is invalid return that 'Invalid Password' to
       // the user
       if (!isValidPassword(usr, password)) {
+        console.log("Invalid password");
         return fn(null, false, { message: 'Invalid Password' });
       }
       return fn(null, usr);
     });
-  }
-));
+  }));
 
-passport.use('signup_mentor', new LocalStrategy({
+passport.use('signup_student', new LocalStrategy({
     passReqToCallback : true
   },
-  function(req, username, password, fullname, agegroup, done) {
-    findOrCreateUser = function(){
+  function(req, username, password, done) {
+    console.log('MU LA LA');
+    var findOrCreateUser = function(){
       // find a user in Mongo with provided username
       User.findOne({'username':username},function(err, user) {
         // In case of any error return
@@ -83,11 +88,12 @@ passport.use('signup_mentor', new LocalStrategy({
           // set the user's local credentials
           router.use(bodyParser.json());
           newUser.username = username;
-          newUser.password = createHash(password);
+          newUser.password = password;
 
-          newUser.fullname= req.body('Full Name');
-          newUser.agegroup = req.body('Age Group');
-          newUser.school= req.body('University');
+          newUser.fullname= req.body.fullname;
+          newUser.agegroup = req.body.agegroup;
+          newUser.school= req.body.school;
+
           console.log('HERE');  
  
           // save the user
@@ -111,11 +117,23 @@ passport.use('signup_mentor', new LocalStrategy({
 
 
 router.post('/login', 
-  passport.authenticate('local', 
+  passport.authenticate('login', 
     { successRedirect: '/main',
     failureRedirect: '/login',
-    failureFlash: true })
+    failureFlash: false })
 );
+
+router.post('/signup/student', passport.authenticate('signup_student',
+  {successRedirect: '/main',
+  failureRedirect: '/signup/student',
+  failureFlash: false})
+);
+
+router.post('/signup/college', passport.authenticate('local',
+  {successRedirect: '/main',
+  failureRedirect: '/signup/college',
+  failureFlash: false})
+  );
 
 
 

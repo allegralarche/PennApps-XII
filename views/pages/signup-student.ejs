@@ -12,14 +12,14 @@
           <div id="signup">   
             <h3><font color="7d0d0d">Sign Up to Join a Squad at Your School!</font></h3>
             
-            <form action="/" method="post">
+            <form action="/auth/signup/student" method="post">
             
             <div class="top-row">
               <div class="field-wrap">
               <label>
                 Username&nbsp;<span class="req"> </span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text"required autocomplete="off"name='username'/>
             </div>
             <br>
             
@@ -27,7 +27,7 @@
               <label>
                 Password&nbsp;<span class="req"> </span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="password" name='password' required autocomplete="off"/>
             </div>
             <br>
 
@@ -36,7 +36,7 @@
                 <label>
                   Full Name&nbsp;<span class="req"> </span>
                 </label>
-                <input type="text" required autocomplete="off" />
+                <input type="text" name='fullname' required autocomplete="off" />
               </div>
             </div>
             <br>
@@ -45,7 +45,7 @@
               <label>
                 Age Group<span class="req"> </span>
               </label>
-              <select>
+              <select name='agegroup'>
                 <option>Elementary School</option>
                 <option>Middle School</option>
                 <option>High School</option>
@@ -57,7 +57,7 @@
               <label>
                 School&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="req"> </span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text" name='school' required autocomplete="off"/>
             </div>
             <br>
             

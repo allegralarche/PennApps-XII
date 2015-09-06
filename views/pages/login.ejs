@@ -10,27 +10,27 @@
 	<div id='popupContainer'>
 	  <div id='popup'>
 	    <h3><font color="7d0d0d">Login</font></h3>
-	    <form action='/auth' method='post'>
+	    <form action='/auth/login' method='post'>
 	        <div class="field-wrap">
-              <label>
-                Username&nbsp;<span class="req"> </span>
-              </label>
-              <input type="text"required autocomplete="off"/>
-            </div>
-            <br>
-            <div class="field-wrap">
-              <label>
-                Password&nbsp;<span class="req"> </span>
-              </label>
-              <input type="password"required autocomplete="off"/>
-            </div>
-            <br>
+            <label>
+              Username&nbsp;<span class="req"> </span>
+            </label>
+            <input type="text" name="username"/>
+          </div>
+          <br>
+          <div class="field-wrap">
+            <label>
+              Password&nbsp;<span class="req"> </span>
+            </label>
+            <input type="password"name="password"/>
+          </div>
+          <br>
 	        <div class="field-wrap">
-	            <button type="submit" class="button button-block"/>Squad Up</button>
-			</div>
-	    </form>
+	          <button type="submit" class="center"/>Squad Up</button>
+			    </div>
+	      </form>
+	    </div>
 	  </div>
-	</div>
-</body>
+  </body>
 </html>
 
