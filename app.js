@@ -16,11 +16,6 @@ var auth = require('./auth/routes');
 /* Schedule crons */
 var update = require('./crons/update');
 
-/* Database connections */
-var dbConfig = require('./db.js');
-var mongoose = require('mongoose');
-mongoose.connect(dbConfig.url);
-
 var app = express();
 
 // view engine setup

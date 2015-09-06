@@ -1,8 +1,8 @@
 var schedule = require('node-schedule');
 /* Database connections */
-var dbConfig = require('./db.js');
+var dbConfig = require('../db.js');
 var mongoose = require('mongoose');
-var models = require('./models/models');
+var models = require('../models/models');
 var Users = models.User;
 var Squads = models.Squad;
 var Activities = models.Activity;
@@ -14,7 +14,7 @@ function monthString() {
 	];
 
 	var d = new Date();
-	return monthNames[d.getMonth()]);
+	return monthNames[d.getMonth()];
 }
 
 

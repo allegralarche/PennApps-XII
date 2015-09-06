@@ -20,9 +20,31 @@ body {
     margin: auto;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
+    margin-left: 300px;
+    display: inline-block;
+}
+
+
+input[type="text"],
+input[type="password"] {
     border-radius: 6;
     -webkit-appearance: none;
+    margin: 0;
+    box-shadow: none;
+    padding: 4px;
+    border: none;
+    border-bottom: solid 2px #7d0d0d;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="text"].focus,
+input[type="password"]:focus,
+input[type="password"].focus {
+    border-bottom: solid 2px #cc3939;
+    outline:none;
 }
 
 button[type="submit"] {
@@ -36,4 +58,16 @@ button[type="submit"] {
     border-style: solid;
     border-width: 2px;
     border-color: white;
+    font-size: 14px;
 }
+
+button[type="submit"]:hover {
+    padding: 6px 34px;
+    border-width: 3px;
+    cursor: pointer;
+}
+
+td {
+    padding: 0px 7px;
+}
+

@@ -34,30 +34,34 @@ var isValidPassword = function(user, password){
 }
 
 
+
+
+
 // Use the LocalStrategy within Passport.
 //   Strategies in passport require a `verify` function, which accept
 //   credentials (in this case, a username and password), and invoke a callback
-//   with a user object.  In the real world, this would query a database;
-//   however, in this example we are using a baked-in set of users.
-passport.use(new LocalStrategy(
-  function (username, password, fn) {
+//   with a user object.  
+passport.use('login', new LocalStrategy(function (username, password, fn) {
+    console.log("inside login fn");
     User.findOne({'username': username}, function (err, usr) {
       if (err) {
+        console.log(err);
         return fn(err, false, { message: 'An Error occured' });
       }
       // no user then an account was not found for that email address
       if (!usr) {
+        console.log("No user");
         return fn(null, false, { message: 'Unknown username ' + username });
       }
       // if the password is invalid return that 'Invalid Password' to
       // the user
       if (!isValidPassword(usr, password)) {
+        console.log("Invalid password");
         return fn(null, false, { message: 'Invalid Password' });
       }
       return fn(null, usr);
     });
-  }
-));
+  }));
 
 passport.use('signup_student', new LocalStrategy({
     passReqToCallback : true
@@ -165,7 +169,7 @@ passport.use('signup_mentor', new LocalStrategy({
 
 
 router.post('/login', 
-  passport.authenticate('local', 
+  passport.authenticate('login', 
     { successRedirect: '/main',
     failureRedirect: '/login',
     failureFlash: false })
