@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
 	
-  res.render('pages/mentee_dashboard');
+  res.render('pages/mentee-dashboard');
 });
 
 module.exports = router;
