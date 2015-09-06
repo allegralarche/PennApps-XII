@@ -25,8 +25,8 @@ body {
 	float: right;
 	height: auto; 
 	width: auto; 
-	padding: 15px;
-	max-height: 40px;
+	padding: 30px 15px 15px 15px;
+	max-height: 30px;
 
 	display: inline-block;
 	vertical-align: middle;
@@ -50,6 +50,7 @@ body {
 
 .wrap {
 	width: 100%;
+	display: inline-block;
 }
 .my_squad, .all_squads {
     background-color: #CC3939;
@@ -74,8 +75,15 @@ body {
 	max-height: 50px;
 }
 .tab_body {
-	padding: 10px;
+	margin: -10px 30px 30px 30px;
 }
 
+h4 {
+	color: #7d0d0d;
+	line-height: 0.01;
+}
 
+p {
+	line-height: 0.02;
+}
 
